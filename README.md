@@ -13,49 +13,91 @@ brew install omaship
 
 ```bash
 omaship --version
+omaship -h
 ```
 
-Login to your Omaship host:
+## Quick Start
 
 ```bash
-omaship login --token <TOKEN> --host https://build.omaship.com
+omaship login --token <token> --host https://build.omaship.com
+omaship whoami
+omaship list
+omaship use <ship-ref>
+omaship info
 ```
 
-## Update
+`<ship-ref>` can be either:
+
+- full ship name (`org/repo`, preferred)
+- numeric ship id from `omaship list`
+
+Examples:
+
+```bash
+omaship use omaship/acme
+omaship use 17
+```
+
+## Core Commands
+
+- `omaship whoami`
+- `omaship list`
+- `omaship use <ship-ref>`
+- `omaship info [--ship <ship-ref>]` (`status` and `ship` are aliases)
+- `omaship new <name>` (requires full-access token)
+- `omaship configure --payments <provider> [--ship <ship-ref>]` (requires full-access token)
+- `omaship deploy [--ship <ship-ref>]` (requires full-access token)
+
+## Shell Completion
+
+Generate completion scripts directly from the CLI:
+
+```bash
+omaship complete bash
+omaship complete zsh
+omaship complete fish
+```
+
+Common install locations:
+
+```bash
+# bash
+mkdir -p ~/.local/share/bash-completion/completions
+omaship complete bash > ~/.local/share/bash-completion/completions/omaship
+
+# zsh
+mkdir -p ~/.zfunc
+omaship complete zsh > ~/.zfunc/_omaship
+autoload -Uz compinit
+compinit
+
+# fish
+mkdir -p ~/.config/fish/completions
+omaship complete fish > ~/.config/fish/completions/omaship.fish
+```
+
+## Update / Uninstall
 
 ```bash
 brew update
 brew upgrade omaship
-```
 
-## Uninstall
-
-```bash
 brew uninstall omaship
 brew untap bloomedai/homebrew-tap
 ```
 
-## Troubleshooting
+## Release and Formula Updates
 
-If Homebrew still resolves an old formula:
-
-```bash
-brew update-reset
-brew update
-brew upgrade omaship
-```
-
-If `omaship` is not found after install, ensure your Homebrew `bin` directory is in `PATH`.
-
-If `Formula/omaship.rb` is not present yet, the latest `omaship/v*` release has not been published to this tap yet.
-
-## Release Process
-
-`Formula/omaship.rb` is maintained automatically by the Omaship release workflow in:
+`Formula/omaship.rb` is updated automatically from the Omaship release workflow in:
 
 - https://github.com/bloomedai/omaship
 
-On each `omaship/v*` release, the workflow publishes the gem to RubyGems and updates this tap formula with the new version and checksum.
+On each `omaship/v*` release, the workflow:
+
+1. publishes the CLI gem to RubyGems
+2. updates this tap formula with the new version and checksum
+
+If `Formula/omaship.rb` is missing, the latest `omaship/v*` release has not run yet.
 
 ## Source
 
