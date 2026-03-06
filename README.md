@@ -5,7 +5,7 @@ Official Homebrew tap for the Omaship CLI.
 ## Install
 
 ```bash
-brew tap bloomedai/tap
+brew tap bloomedai/homebrew-tap
 brew install omaship
 ```
 
@@ -32,7 +32,7 @@ brew upgrade omaship
 
 ```bash
 brew uninstall omaship
-brew untap bloomedai/tap
+brew untap bloomedai/homebrew-tap
 ```
 
 ## Troubleshooting
@@ -46,6 +46,8 @@ brew upgrade omaship
 ```
 
 If `omaship` is not found after install, ensure your Homebrew `bin` directory is in `PATH`.
+
+If `Formula/omaship.rb` is not present yet, the latest `omaship/v*` release has not been published to this tap yet.
 
 ## Release Process
 
