@@ -1,8 +1,8 @@
 class Omaship < Formula
   desc "CLI for provisioning and managing Omaship ships"
   homepage "https://omaship.com"
-  url "https://rubygems.org/downloads/omaship-0.2.1.gem"
-  sha256 "8b9daf715b27b4af51a4891970b4ae00a337f2e4aced094a8e79592306aa9c40"
+  url "https://rubygems.org/downloads/omaship-0.2.2.gem"
+  sha256 "eb87ce1dc5aedd08d0cd22d654114db533d727cdd05c426a72ef2a7fa66133e2"
   license "Proprietary"
 
   depends_on "ruby"
