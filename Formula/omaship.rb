@@ -10,7 +10,7 @@ class Omaship < Formula
   def install
     ENV["GEM_HOME"] = libexec
     system "gem", "install", cached_download, "--no-document", "--install-dir", libexec
-    bin.env_script_all_files(libexec/"bin", GEM_HOME: ENV["GEM_HOME"], GEM_PATH: ENV["GEM_HOME"])
+    (bin/"omaship").write_env_script(libexec/"bin/omaship", GEM_HOME: ENV["GEM_HOME"], GEM_PATH: ENV["GEM_HOME"])
   end
 
   test do
